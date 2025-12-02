@@ -53,7 +53,7 @@ export const deleteProduct = async (req, res) => {
     const id = req.params.id;
     if (id) {
       await deleteProductService(id);
-      res.sendstatus(200);
+      res.sendStatus(200);
     } else {
       res.status(404).json({ message: "ID no encontrado" });
     }
@@ -63,3 +63,4 @@ export const deleteProduct = async (req, res) => {
       .json({ error: "Error interno del servidor al eliminar producto" });
   }
 };
+
