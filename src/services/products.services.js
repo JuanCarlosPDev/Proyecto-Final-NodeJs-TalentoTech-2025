@@ -10,7 +10,6 @@ export const getAllProductsService = async () => {
   return new Promise(async (res, rej) => {
     try {
       const productos = await getProductsFromDB();
-      console.log(productos)
       res(productos);
     } catch (error) {
       rej();
@@ -51,3 +50,4 @@ export const deleteProductService = async (id) => {
     }
   });
 };
+
