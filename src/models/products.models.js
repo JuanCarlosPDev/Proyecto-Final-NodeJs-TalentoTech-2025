@@ -12,7 +12,6 @@ export function getProductsFromDB() {
   return new Promise(async (res, rej) => {
     try {
       const querySnapshot = await getDocs(collection(db, "products"));
-      console.log("Snap completa: ", querySnapshot);
       const productos = [];
       querySnapshot.forEach((doc) => {
         productos.push({ ...doc.data(), id: doc.id });
@@ -31,11 +30,8 @@ export function getProductByIdFromDB(id) {
       const docRef = doc(db, "products", id);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        console.log(docSnap.data());
         res(docSnap.data());
       } else {
-        // docSnap.data() will be undefined in this case
-        console.log("No such document!");
         res();
       }
     } catch (error) {
@@ -68,5 +64,3 @@ export function deleteProductFromDB(id) {
     }
   });
 }
-
-deleteProductFromDB("dIsb5CIgYOkPV35DzC0G");
