@@ -34,7 +34,7 @@ app.use((req, res, next) => {
 
 /* ----- Conexión de Rutas ----- */
 app.use("/api", authRoutes);
-app.use("/api", productsRoutes);
+app.use("/auth", productsRoutes);
 
 // Presentación del servidor
 app.get("/", (req, res) => {
@@ -66,3 +66,4 @@ app.use((req, res, next) => {
 app.listen(PORT, () => {
   console.log(`🚀 Servidor API REST corriendo en http://localhost:${PORT}`);
 });
+
